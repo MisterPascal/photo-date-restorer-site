@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# TODO: replace the host below with your real GitHub Pages URL
+Sitemap: https://example.github.io/sitemap.xml
