@@ -65,8 +65,6 @@ The `.nojekyll` file ensures all files are served as-is.
 
 ## TODO
 
-- **Real screenshots:** replace the placeholders in the Screenshots section with actual
-  app screenshots (the `app-preview.svg` hero is an abstract mock).
 - **Pages URL:** replace `https://example.github.io/` with the real GitHub Pages host (or
   custom domain) in `index.html` (canonical), `robots.txt`, and `sitemap.xml`. Pending the
   Pages/domain decision (and a possible repo rename to `dateback-site`).
