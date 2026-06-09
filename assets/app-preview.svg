@@ -1,82 +1,82 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 420" width="520" height="420" role="img" aria-label="Abstract preview: filenames with detected dates being restored and sorted in a gallery">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#eff6ff"/>
-      <stop offset="1" stop-color="#f5f3ff"/>
+      <stop offset="0" stop-color="#fbf4e7"/>
+      <stop offset="1" stop-color="#f4e7d2"/>
     </linearGradient>
     <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#2563eb"/>
-      <stop offset="1" stop-color="#7c3aed"/>
+      <stop offset="0" stop-color="#e9a64a"/>
+      <stop offset="1" stop-color="#c47e2c"/>
     </linearGradient>
   </defs>
 
-  <rect x="0" y="0" width="520" height="420" rx="18" fill="url(#bg)"/>
+  <rect x="0" y="0" width="520" height="420" rx="6" fill="url(#bg)"/>
 
   <!-- LEFT: filename list with detected dates -->
-  <text x="34" y="44" font-family="monospace" font-size="13" fill="#475569" font-weight="700">Detected from filename</text>
+  <text x="34" y="44" font-family="monospace" font-size="13" fill="#8a6d44" font-weight="700">Detected from filename</text>
 
   <!-- row 1 -->
-  <rect x="30" y="56" width="220" height="46" rx="9" fill="#ffffff" stroke="#e2e8f0"/>
-  <rect x="42" y="68" width="22" height="22" rx="4" fill="#2563eb" opacity="0.15"/>
-  <path d="M46 86 l6-7 4 4 4-4 6 7Z" fill="#2563eb" opacity="0.55"/>
-  <text x="74" y="74" font-family="monospace" font-size="11" fill="#0f172a">IMG-20240510-WA0001.jpg</text>
-  <text x="74" y="90" font-family="monospace" font-size="11" fill="#16a34a" font-weight="700">→ 2024-05-10</text>
+  <rect x="30" y="56" width="220" height="46" rx="3" fill="#ffffff" stroke="#e7dcc7"/>
+  <rect x="42" y="68" width="22" height="22" rx="3" fill="#e9a64a" opacity="0.18"/>
+  <path d="M46 86 l6-7 4 4 4-4 6 7Z" fill="#c47e2c" opacity="0.6"/>
+  <text x="74" y="74" font-family="monospace" font-size="11" fill="#2a2018">IMG-20240510-WA0001.jpg</text>
+  <text x="74" y="90" font-family="monospace" font-size="11" fill="#5f9456" font-weight="700">&#8594; 2024-05-10</text>
 
   <!-- row 2 -->
-  <rect x="30" y="112" width="220" height="46" rx="9" fill="#ffffff" stroke="#e2e8f0"/>
-  <rect x="42" y="124" width="22" height="22" rx="4" fill="#7c3aed" opacity="0.15"/>
-  <path d="M46 142 l6-7 4 4 4-4 6 7Z" fill="#7c3aed" opacity="0.55"/>
-  <text x="74" y="130" font-family="monospace" font-size="11" fill="#0f172a">VID-20231224-WA0032.mp4</text>
-  <text x="74" y="146" font-family="monospace" font-size="11" fill="#16a34a" font-weight="700">→ 2023-12-24</text>
+  <rect x="30" y="112" width="220" height="46" rx="3" fill="#ffffff" stroke="#e7dcc7"/>
+  <rect x="42" y="124" width="22" height="22" rx="3" fill="#c47e2c" opacity="0.18"/>
+  <path d="M46 142 l6-7 4 4 4-4 6 7Z" fill="#a8631f" opacity="0.6"/>
+  <text x="74" y="130" font-family="monospace" font-size="11" fill="#2a2018">VID-20231224-WA0032.mp4</text>
+  <text x="74" y="146" font-family="monospace" font-size="11" fill="#5f9456" font-weight="700">&#8594; 2023-12-24</text>
 
   <!-- row 3 -->
-  <rect x="30" y="168" width="220" height="46" rx="9" fill="#ffffff" stroke="#e2e8f0"/>
-  <rect x="42" y="180" width="22" height="22" rx="4" fill="#2563eb" opacity="0.15"/>
-  <path d="M46 198 l6-7 4 4 4-4 6 7Z" fill="#2563eb" opacity="0.55"/>
-  <text x="74" y="186" font-family="monospace" font-size="11" fill="#0f172a">IMG_20240510_143012.jpg</text>
-  <text x="74" y="202" font-family="monospace" font-size="11" fill="#16a34a" font-weight="700">→ 2024-05-10</text>
+  <rect x="30" y="168" width="220" height="46" rx="3" fill="#ffffff" stroke="#e7dcc7"/>
+  <rect x="42" y="180" width="22" height="22" rx="3" fill="#e9a64a" opacity="0.18"/>
+  <path d="M46 198 l6-7 4 4 4-4 6 7Z" fill="#c47e2c" opacity="0.6"/>
+  <text x="74" y="186" font-family="monospace" font-size="11" fill="#2a2018">IMG_20240510_143012.jpg</text>
+  <text x="74" y="202" font-family="monospace" font-size="11" fill="#5f9456" font-weight="700">&#8594; 2024-05-10</text>
 
   <!-- arrow -->
   <g>
     <line x1="262" y1="135" x2="300" y2="135" stroke="url(#accent)" stroke-width="4" stroke-linecap="round"/>
-    <path d="M298 127 l12 8 -12 8Z" fill="#7c3aed"/>
-    <circle cx="286" cy="178" r="15" fill="#22c55e"/>
-    <path d="M280 178 l4 4 7 -8" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M298 127 l12 8 -12 8Z" fill="#c47e2c"/>
+    <circle cx="286" cy="178" r="15" fill="#5f9456"/>
+    <path d="M280 178 l4 4 7 -8" fill="none" stroke="#fbf4e7" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
 
   <!-- RIGHT: sorted gallery -->
-  <text x="322" y="44" font-family="monospace" font-size="13" fill="#475569" font-weight="700">Gallery, correctly sorted</text>
+  <text x="322" y="44" font-family="monospace" font-size="13" fill="#8a6d44" font-weight="700">Gallery, correctly sorted</text>
   <g>
     <!-- gallery thumbs -->
-    <rect x="322" y="56" width="78" height="62" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
-    <path d="M330 110 l16-18 10 11 8-8 14 15Z" fill="#2563eb" opacity="0.25"/>
-    <circle cx="380" cy="74" r="6" fill="#7c3aed" opacity="0.4"/>
+    <rect x="322" y="56" width="78" height="62" rx="3" fill="#ffffff" stroke="#e7dcc7"/>
+    <path d="M330 110 l16-18 10 11 8-8 14 15Z" fill="#e9a64a" opacity="0.3"/>
+    <circle cx="380" cy="74" r="6" fill="#c47e2c" opacity="0.45"/>
 
-    <rect x="408" y="56" width="78" height="62" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
-    <path d="M416 110 l16-18 10 11 8-8 14 15Z" fill="#7c3aed" opacity="0.25"/>
-    <circle cx="466" cy="74" r="6" fill="#2563eb" opacity="0.4"/>
+    <rect x="408" y="56" width="78" height="62" rx="3" fill="#ffffff" stroke="#e7dcc7"/>
+    <path d="M416 110 l16-18 10 11 8-8 14 15Z" fill="#c47e2c" opacity="0.3"/>
+    <circle cx="466" cy="74" r="6" fill="#e9a64a" opacity="0.45"/>
 
-    <rect x="322" y="126" width="78" height="62" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
-    <path d="M330 180 l16-18 10 11 8-8 14 15Z" fill="#2563eb" opacity="0.25"/>
-    <circle cx="380" cy="144" r="6" fill="#7c3aed" opacity="0.4"/>
+    <rect x="322" y="126" width="78" height="62" rx="3" fill="#ffffff" stroke="#e7dcc7"/>
+    <path d="M330 180 l16-18 10 11 8-8 14 15Z" fill="#e9a64a" opacity="0.3"/>
+    <circle cx="380" cy="144" r="6" fill="#c47e2c" opacity="0.45"/>
 
-    <rect x="408" y="126" width="78" height="62" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
-    <path d="M416 180 l16-18 10 11 8-8 14 15Z" fill="#7c3aed" opacity="0.25"/>
-    <circle cx="466" cy="144" r="6" fill="#2563eb" opacity="0.4"/>
+    <rect x="408" y="126" width="78" height="62" rx="3" fill="#ffffff" stroke="#e7dcc7"/>
+    <path d="M416 180 l16-18 10 11 8-8 14 15Z" fill="#c47e2c" opacity="0.3"/>
+    <circle cx="466" cy="144" r="6" fill="#e9a64a" opacity="0.45"/>
   </g>
 
   <!-- bottom: preview-before-write bar -->
-  <rect x="30" y="250" width="460" height="138" rx="14" fill="#ffffff" stroke="#e2e8f0"/>
-  <text x="50" y="280" font-family="sans-serif" font-size="14" fill="#0f172a" font-weight="700">Preview before changes</text>
-  <text x="50" y="302" font-family="sans-serif" font-size="12" fill="#475569">100 of 312 photos ready to restore</text>
+  <rect x="30" y="250" width="460" height="138" rx="4" fill="#ffffff" stroke="#e7dcc7"/>
+  <text x="50" y="280" font-family="sans-serif" font-size="14" fill="#2a2018" font-weight="700">Preview before changes</text>
+  <text x="50" y="302" font-family="sans-serif" font-size="12" fill="#8a6d44">100 of 312 photos ready to restore</text>
 
   <!-- progress bar -->
-  <rect x="50" y="318" width="400" height="12" rx="6" fill="#e2e8f0"/>
+  <rect x="50" y="318" width="400" height="12" rx="6" fill="#efe3cf"/>
   <rect x="50" y="318" width="128" height="12" rx="6" fill="url(#accent)"/>
 
   <!-- buttons -->
-  <rect x="50" y="346" width="120" height="30" rx="8" fill="url(#accent)"/>
-  <text x="110" y="366" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#ffffff" font-weight="700">Restore</text>
-  <rect x="182" y="346" width="120" height="30" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
-  <text x="242" y="366" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#475569" font-weight="600">Preview</text>
+  <rect x="50" y="346" width="120" height="30" rx="3" fill="url(#accent)"/>
+  <text x="110" y="366" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#2a2018" font-weight="700">Restore</text>
+  <rect x="182" y="346" width="120" height="30" rx="3" fill="#ffffff" stroke="#e7dcc7"/>
+  <text x="242" y="366" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#8a6d44" font-weight="600">Preview</text>
 </svg>

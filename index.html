@@ -23,14 +23,14 @@
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="index.html">
-        <img src="assets/icon.svg" alt="" width="28" height="28">
+        <img src="assets/icon.svg" alt="" width="26" height="26">
         <span>Photo Date Restorer</span>
       </a>
       <nav class="nav-links">
         <a class="nav-only-desktop" href="#how" data-i18n="nav.how">So funktioniert's</a>
         <a class="nav-only-desktop" href="#pricing" data-i18n="nav.pricing">Preise</a>
         <a class="nav-only-desktop" href="#faq" data-i18n="nav.faq">FAQ</a>
-        <!-- Language switcher (populated by assets/i18n.js) -->
+        <!-- Language switcher (enhanced by assets/i18n.js; the select is the fallback) -->
         <select id="langSwitcher" class="lang-switcher" aria-label="Sprache / Language"></select>
         <!-- TODO: replace "#" with the real Google Play URL -->
         <a class="btn btn-primary" href="#" rel="nofollow" data-i18n="cta.play">Bei Google Play laden</a>
@@ -40,11 +40,10 @@
 
   <main>
 
-    <!-- 1. HERO -->
+    <!-- 1. HERO / FRONTISPIECE -->
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <span class="eyebrow" data-i18n="hero.eyebrow">Lokal • Kein Konto • Kostenlos starten</span>
           <h1 data-i18n="hero.h1">Korrigiere das Datum deiner Chat-Fotos aus dem Dateinamen.</h1>
           <p class="hero-lead" data-i18n="hero.lead">
             Wenn Fotos kopiert, exportiert oder wiederhergestellt werden, sortiert deine Galerie sie
@@ -55,100 +54,136 @@
           <div class="hero-cta">
             <!-- TODO: replace "#" with the real Google Play URL -->
             <a class="btn btn-primary" href="#" rel="nofollow" data-i18n="cta.play">Bei Google Play laden</a>
-            <a class="btn btn-secondary" href="privacy.html" data-i18n="nav.privacy">Datenschutz</a>
+            <a class="link-cta" href="privacy.html" data-i18n="nav.privacy">Datenschutz</a>
           </div>
+          <p class="hero-meta" data-i18n="hero.eyebrow">Lokal • Kein Konto • Kostenlos starten</p>
         </div>
-        <img class="hero-art" src="assets/app-preview.svg"
-             alt="Abstrakte Vorschau: Dateinamen mit erkannten Daten werden wiederhergestellt und in der Galerie sortiert"
-             width="520" height="420">
+        <figure class="plate">
+          <img src="assets/app-preview.svg"
+               alt="Abstrakte Vorschau: Dateinamen mit erkannten Daten werden wiederhergestellt und in der Galerie sortiert"
+               width="520" height="420" fetchpriority="high">
+          <figcaption>
+            IMG-<mark>20240510</mark>-WA0001.jpg
+            <span class="arrow" aria-hidden="true">→</span>
+            <mark>2024-05-10</mark>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
-    <!-- 2. PROBLEM -->
-    <section id="problem" class="section-alt">
+    <!-- 2. § 00 — PROBLEM (ledger) -->
+    <section id="problem" class="band">
       <div class="container">
         <div class="section-head">
           <h2 data-i18n="problem.h2">Warum deine Fotos in der falschen Reihenfolge erscheinen</h2>
           <p class="muted" data-i18n="problem.sub">Ein häufiger Nebeneffekt beim Wechsel zwischen Handys, Apps und Backups.</p>
         </div>
-        <div class="grid">
-          <div class="card">
+        <div class="ledger">
+          <div class="ledger__row">
             <h3 data-i18n="problem.c1.t">Metadaten gehen beim Kopieren verloren</h3>
-            <p class="muted" data-i18n="problem.c1.b">Beim Kopieren, Exportieren oder Wiederherstellen fehlt das ursprüngliche Aufnahmedatum in der Datei oft oder wird ersetzt.</p>
+            <p data-i18n="problem.c1.b">Beim Kopieren, Exportieren oder Wiederherstellen fehlt das ursprüngliche Aufnahmedatum in der Datei oft oder wird ersetzt.</p>
           </div>
-          <div class="card">
+          <div class="ledger__row">
             <h3 data-i18n="problem.c2.t">Die Galerie nutzt das falsche Datum</h3>
-            <p class="muted" data-i18n="problem.c2.b">Ohne Aufnahmedatum greift die Galerie auf das Kopier- oder Änderungsdatum zurück – alte Fotos springen nach oben.</p>
+            <p data-i18n="problem.c2.b">Ohne Aufnahmedatum greift die Galerie auf das Kopier- oder Änderungsdatum zurück – alte Fotos springen nach oben.</p>
           </div>
-          <div class="card">
+          <div class="ledger__row">
             <h3 data-i18n="problem.c3.t">Das Datum steckt noch im Dateinamen</h3>
-            <p class="muted" data-i18n="problem.c3.b">Viele Chat-Fotos behalten das ursprüngliche Datum im Dateinamen, auch wenn die internen Metadaten fehlen.</p>
+            <p data-i18n="problem.c3.b">Viele Chat-Fotos behalten das ursprüngliche Datum im Dateinamen, auch wenn die internen Metadaten fehlen.</p>
           </div>
-          <div class="card">
+          <div class="ledger__row">
             <h3 data-i18n="problem.c4.t">Genau das nutzt die App</h3>
-            <p class="muted" data-i18n="problem.c4.b">Photo Date Restorer liest das Datum aus unterstützten Dateinamen-Mustern und hilft, die korrekte Sortierung wiederherzustellen.</p>
+            <p data-i18n="problem.c4.b">Photo Date Restorer liest das Datum aus unterstützten Dateinamen-Mustern und hilft, die korrekte Sortierung wiederherzustellen.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 3. HOW IT WORKS -->
+    <!-- 3. § 01–03 — THE WORKFLOW (the spine) -->
     <section id="how">
       <div class="container">
         <div class="section-head">
           <h2 data-i18n="how.h2">So funktioniert's</h2>
         </div>
-        <div class="grid steps">
-          <div class="card step">
-            <div class="num">1</div>
-            <h3 data-i18n="how.s1.t">Fotoordner auswählen</h3>
-            <p class="muted" data-i18n="how.s1.b">Wähle den Ordner mit deinen Chat-Fotos oder exportierten Bildern.</p>
+        <div class="stages">
+          <div class="stage">
+            <div class="stage__no">01</div>
+            <div class="stage__body">
+              <h3 data-i18n="how.s1.t">Fotoordner auswählen</h3>
+              <p data-i18n="how.s1.b">Wähle den Ordner mit deinen Chat-Fotos oder exportierten Bildern.</p>
+            </div>
           </div>
-          <div class="card step">
-            <div class="num">2</div>
-            <h3 data-i18n="how.s2.t">Erkannte Daten ansehen</h3>
-            <p class="muted" data-i18n="how.s2.b">Sieh dir an, bei welchen Dateien ein Datum aus dem Dateinamen erkannt wurde – bevor etwas geändert wird.</p>
+          <div class="stage">
+            <div class="stage__no">02</div>
+            <div class="stage__body">
+              <h3 data-i18n="how.s2.t">Erkannte Daten ansehen</h3>
+              <p data-i18n="how.s2.b">Sieh dir an, bei welchen Dateien ein Datum aus dem Dateinamen erkannt wurde – bevor etwas geändert wird.</p>
+            </div>
           </div>
-          <div class="card step">
-            <div class="num">3</div>
-            <h3 data-i18n="how.s3.t">Daten im Stapel wiederherstellen</h3>
-            <p class="muted" data-i18n="how.s3.b">Wende die korrigierten Daten in einem Durchgang auf deine ausgewählten Fotos an.</p>
+          <div class="stage">
+            <div class="stage__no">03</div>
+            <div class="stage__body">
+              <h3 data-i18n="how.s3.t">Daten im Stapel wiederherstellen</h3>
+              <p data-i18n="how.s3.b">Wende die korrigierten Daten in einem Durchgang auf deine ausgewählten Fotos an.</p>
+            </div>
           </div>
         </div>
-        <p class="note" style="margin-top:24px" data-i18n="how.note">
+        <p class="footnote" data-i18n="how.note">
           Funktioniert mit unterstützten Dateinamen-Mustern, bei denen ein gültiges Datum erkannt werden kann.
         </p>
+        <div class="workflow-cta">
+          <!-- TODO: replace "#" with the real Google Play URL -->
+          <a class="btn btn-primary" href="#" rel="nofollow" data-i18n="cta.play">Bei Google Play laden</a>
+        </div>
       </div>
     </section>
 
-    <!-- 4. BENEFITS -->
-    <section class="section-alt">
+    <!-- 4. BENEFITS — register -->
+    <section class="band">
       <div class="container">
         <div class="section-head">
           <h2 data-i18n="benefits.h2">Das bekommst du</h2>
         </div>
-        <div class="grid">
-          <div class="card"><h3><span class="ico">✓</span><span data-i18n="benefits.b1.t">Lokale Verarbeitung</span></h3><p class="muted" data-i18n="benefits.b1.b">Die App ist darauf ausgelegt, Dateinamen und Metadaten direkt auf deinem Gerät zu verarbeiten.</p></div>
-          <div class="card"><h3><span class="ico">✓</span><span data-i18n="benefits.b2.t">Stapel-Verarbeitung</span></h3><p class="muted" data-i18n="benefits.b2.b">Bearbeite viele Fotos auf einmal, statt jede Datei einzeln zu ändern.</p></div>
-          <div class="card"><h3><span class="ico">✓</span><span data-i18n="benefits.b3.t">Vorschau vor Änderungen</span></h3><p class="muted" data-i18n="benefits.b3.b">Prüfe die erkannten Daten, bevor etwas geschrieben wird.</p></div>
-          <div class="card"><h3><span class="ico">✓</span><span data-i18n="benefits.b4.t">Kein Konto nötig</span></h3><p class="muted" data-i18n="benefits.b4.b">Keine Registrierung, kein Login. Einfach App öffnen und loslegen.</p></div>
-          <div class="card"><h3><span class="ico">✓</span><span data-i18n="benefits.b5.t">Kostenlos mit 100 Fotos starten</span></h3><p class="muted" data-i18n="benefits.b5.b">Stelle bis zu 100 Fotos kostenlos wieder her und teste, ob es für dich funktioniert.</p></div>
-          <div class="card"><h3><span class="ico">✓</span><span data-i18n="benefits.b6.t">Für Sortierprobleme gemacht</span></h3><p class="muted" data-i18n="benefits.b6.b">Speziell für Galerie-Sortierprobleme nach Migrationen und Exporten entwickelt.</p></div>
-        </div>
+        <dl class="register">
+          <div>
+            <dt data-i18n="benefits.b1.t">Lokale Verarbeitung</dt>
+            <dd data-i18n="benefits.b1.b">Die App ist darauf ausgelegt, Dateinamen und Metadaten direkt auf deinem Gerät zu verarbeiten.</dd>
+          </div>
+          <div>
+            <dt data-i18n="benefits.b2.t">Stapel-Verarbeitung</dt>
+            <dd data-i18n="benefits.b2.b">Bearbeite viele Fotos auf einmal, statt jede Datei einzeln zu ändern.</dd>
+          </div>
+          <div>
+            <dt data-i18n="benefits.b3.t">Vorschau vor Änderungen</dt>
+            <dd data-i18n="benefits.b3.b">Prüfe die erkannten Daten, bevor etwas geschrieben wird.</dd>
+          </div>
+          <div>
+            <dt data-i18n="benefits.b4.t">Kein Konto nötig</dt>
+            <dd data-i18n="benefits.b4.b">Keine Registrierung, kein Login. Einfach App öffnen und loslegen.</dd>
+          </div>
+          <div>
+            <dt data-i18n="benefits.b5.t">Kostenlos mit 100 Fotos starten</dt>
+            <dd data-i18n="benefits.b5.b">Stelle bis zu 100 Fotos kostenlos wieder her und teste, ob es für dich funktioniert.</dd>
+          </div>
+          <div>
+            <dt data-i18n="benefits.b6.t">Für Sortierprobleme gemacht</dt>
+            <dd data-i18n="benefits.b6.b">Speziell für Galerie-Sortierprobleme nach Migrationen und Exporten entwickelt.</dd>
+          </div>
+        </dl>
       </div>
     </section>
 
-    <!-- 5. SUPPORTED FILENAMES -->
+    <!-- 5. SUPPORTED FILENAMES — specimen -->
     <section id="filenames">
       <div class="container">
         <div class="section-head">
           <h2 data-i18n="files.h2">Unterstützte Dateinamen</h2>
           <p class="muted" data-i18n="files.sub">Beispiele für Dateinamen-Muster, bei denen ein Datum meist erkannt werden kann:</p>
         </div>
-        <ul class="code-list">
-          <li>IMG-20240510-WA0001.jpg</li>
-          <li>VID-20231224-WA0032.mp4</li>
-          <li>IMG_20240510_143012.jpg</li>
+        <ul class="specimen">
+          <li>IMG-<mark>20240510</mark>-WA0001.jpg</li>
+          <li>VID-<mark>20231224</mark>-WA0032.mp4</li>
+          <li>IMG_<mark>20240510</mark>_143012.jpg</li>
         </ul>
         <p class="note" data-i18n="files.note">
           Unterstützte Muster können je nach App-Version variieren. Die App zeigt vor Änderungen eine Vorschau.
@@ -156,46 +191,46 @@
       </div>
     </section>
 
-    <!-- 5b. SCREENSHOTS (placeholders) -->
-    <section id="screenshots" class="section-alt">
+    <!-- 6. SCREENSHOTS — plates (placeholders) -->
+    <section id="screenshots" class="band">
       <div class="container">
         <div class="section-head">
           <h2 data-i18n="shots.h2">Ein Blick in die App</h2>
           <p class="muted" data-i18n="shots.sub">Screenshots folgen in Kürze. Die Platzhalter unten zeigen, wo sie erscheinen.</p>
         </div>
-        <div class="shots">
+        <div class="plates">
           <!-- TODO: replace placeholders with real Play Store screenshots -->
-          <div class="shot-placeholder" data-i18n="shots.p1">Screenshot 1<br>Ordner auswählen</div>
-          <div class="shot-placeholder" data-i18n="shots.p2">Screenshot 2<br>Erkannte Daten ansehen</div>
-          <div class="shot-placeholder" data-i18n="shots.p3">Screenshot 3<br>Im Stapel wiederherstellen</div>
+          <div class="plate-ph" data-i18n="shots.p1">Screenshot 1<br>Ordner auswählen</div>
+          <div class="plate-ph" data-i18n="shots.p2">Screenshot 2<br>Erkannte Daten ansehen</div>
+          <div class="plate-ph" data-i18n="shots.p3">Screenshot 3<br>Im Stapel wiederherstellen</div>
         </div>
       </div>
     </section>
 
-    <!-- 6. PRICING -->
-    <section id="pricing" class="section-alt">
+    <!-- 7. PRICING — table -->
+    <section id="pricing">
       <div class="container">
         <div class="section-head">
           <h2 data-i18n="price.h2">Einfache, transparente Preise</h2>
           <p class="muted" data-i18n="price.sub">Kostenlos starten. Den vollen Stapel nur freischalten, wenn du ihn brauchst.</p>
         </div>
-        <div class="pricing">
-          <div class="card price-card">
+        <div class="price-table">
+          <div class="tier">
             <h3 data-i18n="price.free.t">Kostenlos</h3>
             <div class="price" data-i18n="price.free.price">Kostenlos</div>
-            <p class="muted" data-i18n="price.free.desc">Bis zu 100 Fotos wiederherstellen</p>
+            <p class="price-desc" data-i18n="price.free.desc">Bis zu 100 Fotos wiederherstellen</p>
             <ul>
               <li data-i18n="price.free.l1">Bis zu 100 Fotos wiederherstellen</li>
               <li data-i18n="price.free.l2">Erkannte Daten als Vorschau</li>
               <li data-i18n="price.free.l3">Kein Konto nötig</li>
             </ul>
           </div>
-          <div class="card price-card featured">
-            <span class="badge" data-i18n="price.full.badge">Ideal für große Exporte</span>
+          <div class="tier tier--featured">
+            <span class="tier__tag" data-i18n="price.full.badge">Ideal für große Exporte</span>
             <h3 data-i18n="price.full.t">Voller Stapel freischalten</h3>
             <!-- TODO: price is shown here as plain text so it is easy to change. -->
             <div class="price" data-i18n="price.full.price">7,99 €</div>
-            <p class="muted" data-i18n="price.full.desc">Einmalkauf</p>
+            <p class="price-desc" data-i18n="price.full.desc">Einmalkauf</p>
             <ul>
               <li data-i18n="price.full.l1">Alle unterstützten Fotos wiederherstellen</li>
               <li data-i18n="price.full.l2">Einmalkauf, kein Abo</li>
@@ -209,22 +244,22 @@
       </div>
     </section>
 
-    <!-- 7. PRIVACY -->
+    <!-- 8. PRIVACY — statement -->
     <section id="privacy">
       <div class="container">
-        <div class="section-head">
+        <div class="statement">
           <h2 data-i18n="privacy.teaser.h2">Deine Fotos bleiben auf deinem Gerät</h2>
         </div>
-        <p data-i18n="privacy.teaser.p">
+        <p class="statement" data-i18n="privacy.teaser.p">
           Die App ist darauf ausgelegt, Dateinamen und Metadaten lokal zu verarbeiten. Es ist kein
           Konto erforderlich, und deine Fotos werden nicht auf unsere Server hochgeladen.
         </p>
-        <p><a class="btn btn-secondary" href="privacy.html" data-i18n="privacy.teaser.btn">Vollständige Datenschutzerklärung lesen</a></p>
+        <a class="read-more" href="privacy.html" data-i18n="privacy.teaser.btn">Vollständige Datenschutzerklärung lesen</a>
       </div>
     </section>
 
-    <!-- 8. FAQ -->
-    <section id="faq" class="section-alt">
+    <!-- 9. FAQ -->
+    <section id="faq" class="band">
       <div class="container">
         <div class="section-head">
           <h2 data-i18n="faq.h2">Häufige Fragen</h2>
@@ -260,28 +295,32 @@
 
   </main>
 
-  <!-- 9. FOOTER -->
+  <!-- 10. FOOTER — colophon (Ft4) -->
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-grid">
-        <a class="brand" href="index.html">
-          <img src="assets/icon.svg" alt="" width="28" height="28">
-          <span>Photo Date Restorer</span>
-        </a>
-        <nav class="footer-links">
-          <a href="privacy.html" data-i18n="nav.privacy">Datenschutz</a>
-          <a href="support.html" data-i18n="nav.support">Support</a>
-          <!-- TODO: replace "#" with the real Google Play URL -->
-          <a href="#" rel="nofollow" data-i18n="cta.play">Bei Google Play laden</a>
-        </nav>
+      <div class="colophon">
+        <div>
+          <a class="brand" href="index.html">
+            <img src="assets/icon.svg" alt="" width="26" height="26">
+            <span>Photo Date Restorer</span>
+          </a>
+          <p class="colophon__note disclaimer" data-i18n="disclaimer">
+            Diese App ist ein unabhängiges Hilfsprogramm und steht in keiner Verbindung zu WhatsApp LLC,
+            Meta Platforms, Inc. oder deren verbundenen Unternehmen und wird von diesen weder unterstützt
+            noch gesponsert.
+          </p>
+        </div>
+        <div>
+          <nav class="footer-links">
+            <a href="privacy.html" data-i18n="nav.privacy">Datenschutz</a>
+            <a href="support.html" data-i18n="nav.support">Support</a>
+            <!-- TODO: replace "#" with the real Google Play URL -->
+            <a href="#" rel="nofollow" data-i18n="cta.play">Bei Google Play laden</a>
+          </nav>
+        </div>
       </div>
       <div class="footer-bottom">
-        <p class="note disclaimer" data-i18n="disclaimer">
-          Diese App ist ein unabhängiges Hilfsprogramm und steht in keiner Verbindung zu WhatsApp LLC,
-          Meta Platforms, Inc. oder deren verbundenen Unternehmen und wird von diesen weder unterstützt
-          noch gesponsert.
-        </p>
-        <p style="margin-top:16px" data-i18n="copyright">© 2026 Photo Date Restorer. Alle Rechte vorbehalten.</p>
+        <p data-i18n="copyright">© 2026 Photo Date Restorer. Alle Rechte vorbehalten.</p>
       </div>
     </div>
   </footer>

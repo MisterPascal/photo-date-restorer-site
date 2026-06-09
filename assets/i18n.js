@@ -953,12 +953,78 @@
 
     var sw = document.getElementById("langSwitcher");
     if (sw) sw.value = lang;
+    syncCustom(lang);
     store(lang);
+  }
+
+  /* ---- Custom language dropdown -----------------------------------------
+     Progressive enhancement: the native <select> stays in the DOM as a
+     hidden, accessible source of truth and no-JS fallback. On top of it we
+     build a themed listbox (button + popup) with full keyboard support. */
+
+  var ui = null; // { root, btn, label, menu, opts: { code: <li> } }
+
+  var GLOBE_SVG = '<svg class="globe" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg>';
+  var CHEV_SVG  = '<svg class="chev" viewBox="0 0 12 8" width="12" height="8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M1 1l5 5 5-5"/></svg>';
+  var CHECK_SVG = '<svg class="check" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>';
+
+  function nameOf(code) {
+    for (var i = 0; i < LANGS.length; i++) { if (LANGS[i][0] === code) return LANGS[i][1]; }
+    return code;
+  }
+  function optList() { return ui ? Array.prototype.slice.call(ui.menu.children) : []; }
+  function isOpen() { return ui && ui.root.getAttribute("data-open") === "true"; }
+
+  function openMenu() {
+    if (!ui) return;
+    ui.root.setAttribute("data-open", "true");
+    ui.btn.setAttribute("aria-expanded", "true");
+    document.addEventListener("click", onDocClick, true);
+    var cur = ui.menu.querySelector('[aria-selected="true"]') || ui.menu.children[0];
+    if (cur) cur.focus();
+  }
+  function closeMenu(focusBtn) {
+    if (!ui) return;
+    ui.root.setAttribute("data-open", "false");
+    ui.btn.setAttribute("aria-expanded", "false");
+    document.removeEventListener("click", onDocClick, true);
+    if (focusBtn) ui.btn.focus();
+  }
+  function onDocClick(e) { if (ui && !ui.root.contains(e.target)) closeMenu(false); }
+
+  function moveFocus(dir) {
+    var list = optList(); if (!list.length) return;
+    var idx = list.indexOf(document.activeElement);
+    idx = (idx + dir + list.length) % list.length;
+    list[idx].focus();
+  }
+  function onOptKey(e) {
+    switch (e.key) {
+      case "ArrowDown": e.preventDefault(); moveFocus(1); break;
+      case "ArrowUp":   e.preventDefault(); moveFocus(-1); break;
+      case "Home":      e.preventDefault(); optList()[0].focus(); break;
+      case "End":       e.preventDefault(); var l = optList(); l[l.length - 1].focus(); break;
+      case "Enter": case " ":
+        e.preventDefault(); apply(this.getAttribute("data-code")); closeMenu(true); break;
+      case "Escape":    e.preventDefault(); closeMenu(true); break;
+      case "Tab":       closeMenu(false); break;
+    }
+  }
+
+  function syncCustom(lang) {
+    if (!ui) return;
+    ui.label.textContent = nameOf(lang);
+    for (var code in ui.opts) {
+      if (!ui.opts.hasOwnProperty(code)) continue;
+      ui.opts[code].setAttribute("aria-selected", code === lang ? "true" : "false");
+    }
   }
 
   function buildSwitcher(current) {
     var sw = document.getElementById("langSwitcher");
     if (!sw) return;
+
+    // Populate + keep the native select as hidden source of truth / fallback.
     var html = "";
     for (var i = 0; i < LANGS.length; i++) {
       var code = LANGS[i][0], name = LANGS[i][1];
@@ -966,6 +1032,53 @@
     }
     sw.innerHTML = html;
     sw.addEventListener("change", function () { apply(sw.value); });
+    sw.classList.add("is-enhanced");
+
+    // Build the themed widget.
+    var root = document.createElement("div");
+    root.className = "lang-select";
+    root.setAttribute("data-open", "false");
+
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "lang-select__btn";
+    btn.setAttribute("aria-haspopup", "listbox");
+    btn.setAttribute("aria-expanded", "false");
+    btn.setAttribute("aria-label", sw.getAttribute("aria-label") || "Sprache / Language");
+    btn.innerHTML = GLOBE_SVG + '<span class="lang-select__label"></span>' + CHEV_SVG;
+
+    var menu = document.createElement("ul");
+    menu.className = "lang-select__menu";
+    menu.setAttribute("role", "listbox");
+
+    var optMap = {};
+    for (var j = 0; j < LANGS.length; j++) {
+      var c = LANGS[j][0], n = LANGS[j][1];
+      var li = document.createElement("li");
+      li.className = "lang-select__opt";
+      li.setAttribute("role", "option");
+      li.setAttribute("data-code", c);
+      li.setAttribute("tabindex", "-1");
+      li.setAttribute("aria-selected", c === current ? "true" : "false");
+      li.innerHTML = '<span class="lang-select__name">' + n + '</span>' +
+                     '<span class="lang-select__code">' + c.toUpperCase() + '</span>' + CHECK_SVG;
+      li.addEventListener("click", function () { apply(this.getAttribute("data-code")); closeMenu(true); });
+      li.addEventListener("keydown", onOptKey);
+      menu.appendChild(li);
+      optMap[c] = li;
+    }
+
+    btn.addEventListener("click", function () { isOpen() ? closeMenu(false) : openMenu(); });
+    btn.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowDown") { e.preventDefault(); if (!isOpen()) openMenu(); }
+    });
+
+    root.appendChild(btn);
+    root.appendChild(menu);
+    sw.parentNode.insertBefore(root, sw.nextSibling);
+
+    ui = { root: root, btn: btn, label: btn.querySelector(".lang-select__label"), menu: menu, opts: optMap };
+    syncCustom(current);
   }
 
   function init() {

@@ -1,0 +1,13 @@
+[
+  {
+    "date": "2026-06-06",
+    "macrostructure": "Narrative Workflow",
+    "theme": "custom",
+    "theme_axes": "light / roman-serif / warm-red",
+    "vibe": "warm-paper almanac field manual",
+    "enrichment": "figure-plate (existing app-preview SVG)",
+    "nav": "N6-lite masthead",
+    "footer": "Ft4 dense colophon",
+    "brief": "Photo Date Restorer — redesign landing away from SaaS-grid slop into a light editorial almanac; i18n (8 langs) + no-external-resources preserved"
+  }
+]
