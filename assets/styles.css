@@ -1,17 +1,22 @@
-/* Hallmark · genre: modern-minimal · macrostructure: Narrative Workflow · theme: Plain-light (custom)
- * type: clean system sans (display + body) + mono (wordmark + filename data) — no CDN (privacy)
- * F4 step-sequence knobs: numbering=01/02/03 (quiet), layout=vertical, connector=hairline
- * nav: N6-lite masthead (grounded, double-rule) · footer: Ft4 dense colophon
- * enrichment: figure-plate (existing SVG) · accent: warm-red ~3% · paper: light · eyebrows: none
- * pre-emit critique: P5 H5 E5 S5 R5 V5
- *
- * Photo Date Restorer — landing page styles.
- * A clean, warm-paper page: cream surfaces, one warm-red accent reserved for
- * dates and active states, a native UI sans for everything, mono for the
- * wordmark and real filename data. Tokens live in tokens.css.
- * No external resources. No cookies, no trackers. */
+/* DateBack — landing page styles.
+ * A sober dark "pro tool" page mirroring the Android app: cool charcoal
+ * surfaces, near-white text, one deep-blue accent reserved for dates and
+ * active states. Hanken Grotesk (bundled below) carries the page; a system
+ * monospace is the data register for filenames and dates. Tokens live in
+ * tokens.css. No external resources. No cookies, no trackers. */
 
 @import "tokens.css";
+
+/* Hanken Grotesk — bundled locally (no CDN) to match the app's typography
+   while keeping the no-external-request privacy promise. Variable weight. */
+@font-face {
+  font-family: "Hanken Grotesk";
+  src: url("fonts/hanken-grotesk.ttf") format("truetype-variations"),
+       url("fonts/hanken-grotesk.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
 
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -95,11 +100,11 @@ code {
   display: inline-flex;
   align-items: center;
   gap: var(--sp-3);
-  font-family: var(--mono);
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  text-transform: uppercase;
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: none;
   color: var(--ink);
   text-decoration: none;
 }
@@ -122,7 +127,7 @@ code {
   height: 0;
   max-width: var(--maxw);
   margin: 0 auto;
-  border-top: 2px solid var(--ink);
+  border-top: 1px solid var(--rule-strong);
   border-bottom: 1px solid var(--accent-line);
   padding-top: 3px;
 }
@@ -284,7 +289,7 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + var(--sp-5)); }
 .ledger__row p { margin: 0; color: var(--muted); }
 
 /* ============================================================= § 01–03 WORKFLOW — stages */
-.stages { border-top: 2px solid var(--ink); }
+.stages { border-top: 1px solid var(--rule-strong); }
 .stage {
   display: grid;
   grid-template-columns: 3.5rem minmax(0, 1fr);
@@ -436,7 +441,7 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + var(--sp-5)); }
 /* ============================================================= FOOTER — Ft4 colophon */
 .site-footer {
   background: var(--paper-4);
-  border-top: 2px solid var(--ink);
+  border-top: 1px solid var(--rule-strong);
   padding: var(--sp-8) 0 var(--sp-7);
   margin-top: var(--sp-9);
 }

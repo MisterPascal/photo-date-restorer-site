@@ -1,46 +1,47 @@
-/* Photo Date Restorer — design tokens
-   Theme: "Almanac" — a light, warm-paper field manual. One accent only:
-   almanac red, the calendar-red used to mark dates. System fonts only — the
-   product promises local processing with no external resources, so no font CDN.
-   Every colour, space step, radius and font stack lives here; the rest of the
-   CSS references tokens only. No external resources. No cookies, no trackers. */
+/* DateBack — design tokens
+   Theme: sober dark "pro tool", mirroring the Android app. Cool charcoal
+   surfaces, near-white text, one deep-blue accent (#4F8DF5) used sparingly.
+   Typography: Hanken Grotesk (bundled locally — no CDN, privacy promise);
+   a system monospace is kept only for filename/date data. Every colour, space
+   step, radius and font stack lives here; the rest of the CSS references tokens
+   only. No external resources. No cookies, no trackers. */
 
 :root {
-  /* ---- Surfaces (warm cream, lightest paper → deepest tint) ---- */
-  --paper:   oklch(96.5% 0.012 88);   /* page                       */
-  --paper-2: oklch(98.6% 0.008 92);   /* raised: plates, price face */
-  --paper-3: oklch(93.2% 0.016 84);   /* sunken alt band            */
-  --paper-4: oklch(90.2% 0.020 82);   /* deepest: colophon          */
+  /* ---- Surfaces (cool charcoal, page → deepest) ---- */
+  --paper:   #0F1216;   /* page                       */
+  --paper-2: #161A20;   /* raised: plates, price face */
+  --paper-3: #0C0F13;   /* sunken alt band            */
+  --paper-4: #090B0E;   /* deepest: colophon          */
 
-  /* ---- Ink on paper ---- */
-  --ink:    oklch(25% 0.014 55);      /* primary text               */
-  --ink-2:  oklch(37% 0.013 52);      /* strong secondary           */
-  --muted:  oklch(45% 0.012 52);      /* secondary text (AA)        */
-  --faint:  oklch(57% 0.010 58);      /* labels / indices (large)   */
+  /* ---- Ink on charcoal ---- */
+  --ink:    #E9EDF2;    /* primary text               */
+  --ink-2:  #C3CAD3;    /* strong secondary           */
+  --muted:  #919AA6;    /* secondary text (AA)        */
+  --faint:  #6C7682;    /* labels / indices           */
 
   /* ---- Hairlines ---- */
-  --rule:        oklch(85% 0.013 82);
-  --rule-strong: oklch(74% 0.017 72);
+  --rule:        #20262E;
+  --rule-strong: #2E3742;
 
-  /* ---- The single accent: almanac red (calendar red for dates) ---- */
-  --accent:      oklch(50% 0.158 33);
-  --accent-deep: oklch(43% 0.150 33);
-  --accent-ink:  oklch(97.5% 0.012 90);  /* text on an accent fill      */
-  --accent-wash: oklch(91% 0.052 42);    /* highlight band behind dates */
-  --accent-line: oklch(64% 0.135 35);    /* lighter accent hairline     */
+  /* ---- The single accent: deep blue (mirrors the app) ---- */
+  --accent:      #4F8DF5;
+  --accent-deep: #82B1F8;                 /* hover = lighter on dark     */
+  --accent-ink:  #FFFFFF;                  /* text on an accent fill      */
+  --accent-wash: rgba(79, 141, 245, 0.16); /* highlight band behind dates */
+  --accent-line: rgba(79, 141, 245, 0.50); /* accent hairline             */
 
   /* ---- Focus ---- */
-  --focus: oklch(50% 0.158 33);
+  --focus: #4F8DF5;
   --focus-ring: 0 0 0 2px var(--paper), 0 0 0 4px var(--focus);
 
-  /* ---- Shadows (light, soft, warm) ---- */
-  --shadow-sm: 0 1px 2px oklch(30% 0.03 60 / 0.10);
-  --shadow:    0 2px 5px oklch(30% 0.03 60 / 0.07),
-               0 18px 44px oklch(30% 0.03 60 / 0.12);
+  /* ---- Shadows (deep, for dark surfaces) ---- */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.50);
+  --shadow:    0 2px 6px rgba(0, 0, 0, 0.40),
+               0 18px 44px rgba(0, 0, 0, 0.55);
 
-  /* ---- Radii (crisp, print-cut corners) ---- */
-  --radius:    4px;
-  --radius-sm: 3px;
+  /* ---- Radii (restrained, app-like 5–8) ---- */
+  --radius:    8px;
+  --radius-sm: 5px;
 
   /* ---- Spacing scale (4pt grid) ---- */
   --sp-1: 4px;  --sp-2: 8px;   --sp-3: 12px;  --sp-4: 16px;  --sp-5: 24px;
@@ -67,11 +68,15 @@
   --dur-short:   220ms;
   --dur-mid:     440ms;
 
-  /* ---- Type stacks (system fonts only — privacy promise, no CDN) ----
-     A clean native UI sans carries the page; mono is the brand + data register. */
-  --sans:  -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display",
-           "Segoe UI", system-ui, Roboto, Helvetica, Arial, sans-serif;
+  /* ---- Type stacks ----
+     Hanken Grotesk (bundled, see @font-face in styles.css) carries the page;
+     a system monospace is the data register for filenames and dates. */
+  --sans:  "Hanken Grotesk", -apple-system, BlinkMacSystemFont,
+           "Segoe UI", Roboto, system-ui, Helvetica, Arial, sans-serif;
   --mono:  ui-monospace, "Cascadia Code", "SF Mono", "Segoe UI Mono",
            Consolas, "Liberation Mono", Menlo, monospace;
   --serif: var(--sans);   /* alias kept so any stray reference stays clean */
 }
+
+/* The page is dark by identity — tell the UA so form controls/scrollbars match. */
+:root { color-scheme: dark; }
