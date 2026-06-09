@@ -1,2 +1,5 @@
 # Local tooling / preview config — not needed for GitHub Pages
 .claude/
+
+# Screenshot scratch (raw captures); final framed shots added intentionally
+assets/screenshots/_raw/
