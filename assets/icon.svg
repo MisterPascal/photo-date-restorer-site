@@ -1,24 +1,34 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="DateBack icon">
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#4F8DF5"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1C2735"/>
+      <stop offset="1" stop-color="#0B0F14"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#DFE5EC"/>
+    </linearGradient>
+    <linearGradient id="badge" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5C9BF7"/>
       <stop offset="1" stop-color="#2F6FED"/>
     </linearGradient>
+    <clipPath id="cardClip"><rect x="14" y="14" width="35" height="33" rx="6"/></clipPath>
   </defs>
-  <!-- rounded app tile -->
-  <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#g)"/>
-  <!-- calendar body -->
-  <rect x="14" y="16" width="36" height="34" rx="6" fill="#F2F5F9"/>
-  <!-- calendar header -->
-  <rect x="14" y="16" width="36" height="9" rx="6" fill="#C9D3DF"/>
-  <rect x="14" y="22" width="36" height="3" fill="#C9D3DF"/>
-  <!-- hangers -->
-  <rect x="22" y="12" width="3.5" height="8" rx="1.75" fill="#F2F5F9"/>
-  <rect x="38.5" y="12" width="3.5" height="8" rx="1.75" fill="#F2F5F9"/>
-  <!-- photo mountains inside -->
-  <path d="M19 44 L27 34 L33 41 L38 36 L45 44 Z" fill="#2F6FED" opacity="0.22"/>
-  <circle cx="40" cy="31" r="2.8" fill="#4F8DF5" opacity="0.6"/>
-  <!-- check mark badge (success) -->
-  <circle cx="46" cy="44" r="10" fill="#22c55e"/>
-  <path d="M41.5 44 L45 47.5 L50.5 41" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- dark rounded tile -->
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#bg)"/>
+
+  <!-- photo card -->
+  <rect x="14" y="14" width="35" height="33" rx="6" fill="url(#card)"/>
+  <g clip-path="url(#cardClip)">
+    <circle cx="40" cy="23.5" r="2.6" fill="#7C879A"/>
+    <path d="M18.5,41 L28,29 L34,35 L39.5,28 L48,41 Z" fill="#5B6675"/>
+  </g>
+
+  <!-- blue restore badge -->
+  <circle cx="46.5" cy="45.5" r="10.5" fill="#0B0F14" opacity="0.35"/>
+  <circle cx="46.5" cy="44.5" r="10.5" fill="url(#badge)"/>
+  <!-- white circular restore arrow -->
+  <path d="M50.6,47.4 A5.2,5.2 0 1 1 50.3,41.1" fill="none" stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round"/>
+  <path d="M52.5,47.8 L49.4,46.3 L51.1,49.6 Z" fill="#FFFFFF"/>
 </svg>
