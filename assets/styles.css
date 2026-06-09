@@ -348,7 +348,17 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + var(--sp-5)); }
 }
 .specimen mark { background: var(--accent-wash); color: var(--accent-deep); padding: 0 0.2em; border-radius: 2px; font-weight: 600; }
 
-/* ============================================================= SCREENSHOTS — plates */
+/* ============================================================= SCREENSHOTS — framed app screens */
+.shots {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: clamp(var(--sp-4), 4vw, var(--sp-7));
+}
+.shot {
+  width: 100%; max-width: 230px; height: auto; display: block;
+  filter: drop-shadow(0 20px 48px rgba(0, 0, 0, 0.55));
+}
+
+/* ============================================================= SCREENSHOTS — plates (legacy) */
 .plates { display: grid; gap: var(--sp-5); grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); max-width: 760px; counter-reset: plate; }
 .plate-ph {
   position: relative;

@@ -1685,6 +1685,12 @@
     // Keep document.title in sync (covers the <title> element too).
     if (dict["meta.title"]) document.title = dict["meta.title"];
 
+    // Localised app screenshots: swap each framed screen to the current language.
+    var shots = document.querySelectorAll(".shot[data-shot]");
+    for (var k = 0; k < shots.length; k++) {
+      shots[k].setAttribute("src", "assets/screenshots/" + lang + "-" + shots[k].getAttribute("data-shot") + ".png");
+    }
+
     var sw = document.getElementById("langSwitcher");
     if (sw) sw.value = lang;
     syncCustom(lang);
