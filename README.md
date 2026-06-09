@@ -14,8 +14,10 @@ surfaces, a single deep-blue accent (`#4F8DF5`), Hanken Grotesk. Design tokens l
 
 ## Languages
 
-The site is German by default and switchable to 8 more languages (English, Spanish,
-French, Italian, Portuguese, Polish, Dutch, Turkish) via the header dropdown.
+The site is German by default and switchable to 15 more languages via the header dropdown —
+the **same 16 languages as the app**: English, Spanish, French, Italian, Portuguese, Polish,
+Dutch, Turkish, Russian, Hindi, Indonesian, Japanese, Korean, Chinese (Simplified) and
+Arabic. Arabic switches the page to **RTL** (`<html dir="rtl">`, set by `i18n.js`).
 
 - All translatable text carries a `data-i18n="key"` attribute; translations live in
   `assets/i18n.js`.
@@ -42,7 +44,7 @@ French, Italian, Portuguese, Polish, Dutch, Turkish) via the header dropdown.
     ├── app-preview.svg
     ├── icon.svg      # Also used as favicon
     ├── fonts/        # Hanken Grotesk (bundled, no CDN)
-    └── i18n.js       # Language switcher + translations (9 languages)
+    └── i18n.js       # Language switcher + translations (16 languages, incl. RTL)
 ```
 
 ## Local preview
@@ -68,10 +70,11 @@ The `.nojekyll` file ensures all files are served as-is.
 - **Pages URL:** replace `https://example.github.io/` with the real GitHub Pages host (or
   custom domain) in `index.html` (canonical), `robots.txt`, and `sitemap.xml`. Pending the
   Pages/domain decision (and a possible repo rename to `dateback-site`).
-- **Localise the sharpened copy:** the German + English strings were aligned with the app
-  (100 files/day, photos *and* videos, undo/copy-mode, no all-files access, one-time pass
-  €3.49 + yearly €2.99). The other 7 languages have the brand/price/links updated but still
-  carry the older persuasive wording — propagate the DE/EN content to es/fr/it/pt/pl/nl/tr.
+- **Localise the sharpened copy in the original 7 languages:** the 7 newly added languages
+  (ru, hi, id, ja, ko, zh, ar) ship with the app-aligned copy (100 files/day, photos *and*
+  videos, undo/copy-mode, no all-files access, one-time pass €3.49 + yearly €2.99). The
+  original es/fr/it/pt/pl/nl/tr still carry the older persuasive wording for the sharpened
+  keys — propagate the DE/EN content to them.
 - Update the privacy policy (`pp.*` keys in `assets/i18n.js`) **before** enabling ads,
   analytics, crash reporting, or any other third-party SDK.
 
